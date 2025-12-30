@@ -1,0 +1,71 @@
+
+Folder highlights
+Project materials detail web applications for Newton's Rings simulation and YDSE calculation, with associated HTML, CSS, and JS code.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newton's Rings Simulator & Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="page-container">
+        
+        <div class="layout-container">
+            
+            <div class="simulator-column">
+                <h1>Newton's Rings Simulator</h1>
+                <p>Use the sliders to see the ring pattern change in real-time.</p>
+                <canvas id="ringsCanvas" width="450" height="450"></canvas>
+                <div class="controls">
+                    <label for="lambda">Wavelength (λ): <span id="lambda-val">589</span> nm</label>
+                    <input type="range" id="lambda" min="400" max="700" value="589">
+                    <label for="radius">Lens Radius (R): <span id="R-val">0.9</span> m</label>
+                    <input type="range" id="radius" min="0.1" max="2" value="0.9" step="0.1">
+                    <label for="zoom">Zoom (Scale): <span id="zoom-val">15000</span>x</label>
+                    <input type="range" id="zoom" min="5000" max="50000" value="15000" step="1000">
+                </div>
+            </div>
+
+            <div class="calculator-column">
+                <h2>Exact Value Calculator</h2>
+                <p>Use this to find a specific value, and it will update the simulation.</p>
+                
+                <div class="calculator-content">
+                    <div class="mode-select">
+                        <input type="radio" id="modeWavelength" name="calcMode" value="wavelength" checked>
+                        <label for="modeWavelength">Calculate Wavelength (λ)</label>
+                        <input type="radio" id="modeDiameter" name="calcMode" value="diameter">
+                        <label for="modeDiameter">Calculate Ring Diameter (D_n)</label>
+                    </div>
+
+                    <div id="wavelengthInputs" class="input-group">
+                        <label>Outer Ring (m): <input type="number" id="m_val"></label>
+                        <label>Outer Diameter (D_m) in mm: <input type="number" id="Dm_val"></label>
+                        <label>Inner Ring (n): <input type="number" id="n_val"></label>
+                        <label>Inner Diameter (D_n) in mm: <input type="number" id="Dn_val"></label>
+                        <label>Radius of Curvature (R) in meters: <input type="number" id="R_val_calc1" value="0.9"></label>
+                    </div>
+
+                    <div id="diameterInputs" class="input-group" style="display: none;">
+                        <label>Ring Number (n): <input type="number" id="n_val_calc2"></label>
+                        <label>Wavelength (λ) in nanometers: <input type="number" id="lambda_val_calc2" value="589"></label>
+                        <label>Radius of Curvature (R) in meters: <input type="number" id="R_val_calc2" value="0.9"></label>
+                    </div>
+                    
+                    <button id="calculateBtn">Calculate and Update Simulation</button>
+
+                    <div id="result-container">
+                        <h3>Calculation Result:</h3>
+                        <p id="result-text">Your result will appear here.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div> <p class="watermark">by Aryan Chauhan</p>
+    </div> <script src="script.js"></script>
+</body>
+</html>
